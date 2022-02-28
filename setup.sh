@@ -15,18 +15,20 @@ read -p 'S3_KEY: ' KEY
 echo S3_ID=$ID >> /etc/environment
 echo S3_KEY=$KEY >> /etc/environment
 echo 'moving files and creating directories'
-cp vault.sh /home/debian/
-cp keepalive /home/debian/
-cp testFile /home/debian/
-mkdir /home/debian/data
-mkdir /home/debian/downloads
+cp vault.sh ~/
+cp keepalive.sh ~/
+chmod u+x ~/vault.sh
+chmod u+x ~/keepalive.sh
+cp testFile ~/
+mkdir ~/data
+mkdir ~/downloads
 echo 'setting up cronjobs'
 crontab -l > vault
-echo '5,10,15,20,25,30,35,40,45,50,55 * * * * /bin/bash /home/debian/vault.sh' >> vault
+echo '5,10,15,20,25,30,35,40,45,50,55 * * * * /bin/bash ~/vault.sh' >> vault
 crontab vault
 rm vault
 crontab -l > keepalive
-echo '0-59 * * * * /bin/bash /home/debian/ping.sh' >> keepalive
+echo '0-59 * * * * /bin/bash ~/ping.sh' >> keepalive
 crontab keepalive
 rm keepalive
 echo 'rebooting in 10 seconds'
