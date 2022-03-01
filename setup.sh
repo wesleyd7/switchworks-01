@@ -1,9 +1,6 @@
 #!/bin/bash
 GREEN="\033[0;32m"
 NC="\033[0m" # No Color
-printf "I ${RED}love${NC} Stack Overflow\n"
-
-
 printf "${GREEN}Running apt update${NC}"
 sudo apt update
 printf "${GREEN}Running apt upgrade${NC}"
