@@ -16,13 +16,21 @@ read -p "S3_KEY: " KEY
 echo S3_ID=$ID >> /etc/environment
 echo S3_KEY=$KEY >> /etc/environment
 echo "moving files and creating directories"
+sleep 1
 cp vault.sh ~/
+sleep 1
 cp keepalive.sh ~/
+sleep 1
 chmod u+x ~/vault.sh
+sleep 1
 chmod u+x ~/keepalive.sh
+sleep 1
 cp testFile ~/
+sleep 1
 mkdir ~/data
+sleep 1
 mkdir ~/downloads
+sleep 1
 echo "setting up cronjobs"
 crontab -l > vault
 echo "0 * * * * /bin/bash ~/vault.sh" >> vault
